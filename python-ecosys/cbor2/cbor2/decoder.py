@@ -159,8 +159,7 @@ def decode_simple_value(decoder):
 
 
 def decode_float16(decoder):
-    payload = decoder.read(2)
-    raise NotImplementedError  # no float16 unpack function
+    return struct.unpack(">e", decoder.read(2))[0]
 
 
 def decode_float32(decoder):
