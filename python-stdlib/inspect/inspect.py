@@ -14,13 +14,15 @@ def getmembers(obj, pred=None):
 def isfunction(obj):
     return isinstance(obj, type(isfunction))
 
-
 def isgeneratorfunction(obj):
     return isinstance(obj, type(lambda: (yield)))
 
+iscoroutinefunction = isgeneratorfunction
 
 def isgenerator(obj):
     return isinstance(obj, type(lambda: (yield)()))
+
+iscoroutine = isgenerator
 
 
 class _Class:
